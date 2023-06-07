@@ -1,0 +1,11 @@
+<div class="bg-primary" style="color: white;">
+    <h2>Operators Demo</h2>
+</div>
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeSidebar()">&times;</a>
+    <a *ngFor="let menuItem of menuItems" [routerLink]="menuItem.link">{{ menuItem.label }}</a>
+</div>
+<div id="main">
+    <button class="openbtn" (click)="openSidebar()" id="button">&#9776;</button>
+</div>
+<router-outlet />
