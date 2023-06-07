@@ -59,6 +59,7 @@ export class SharereplayOperatorComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.sharereplaySubscription.unsubscribe()
+    if (this.sharereplaySubscription)
+      this.sharereplaySubscription.unsubscribe()
   }
 }
