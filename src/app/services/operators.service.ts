@@ -5,7 +5,7 @@ import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap
 @Injectable({
   providedIn: 'root'
 })
-export class RxjsOperatorService {
+export class OperatorsService {
   user: object[] = [{ name: 'Jainik', gender: 'Male' }, { name: 'Mohit', gender: 'Male' }, { name: 'Nirmit', gender: 'Male' }]
 
   constructor(private http: HttpClient) { }
@@ -33,8 +33,8 @@ export class RxjsOperatorService {
   }
 
   mergeOperator(): Observable<number> {
-    const number1$ = interval(1000);
-    const number2$ = interval(1500);
+    const number1$ = of(1, 2, 3, 4, 5);
+    const number2$ = of(6, 7, 8, 9, 10);
     const merged$ = merge(number1$, number2$);
     return merged$
   }

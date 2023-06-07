@@ -1,1 +1,20 @@
-<p>sharereplay-operator works!</p>
+<h3>ShareReplay Operator</h3>
+<hr />
+<p style="background-color: blue; color: white;">Share source and replay specified number of emissions on subscription.
+</p>
+<hr />
+<hr />
+<div class="col-sm-offset-2 col-sm-10">
+    <strong>Input:</strong>
+    <button type="button" class="btn btn-primary" style="width: 200px;" (click)="onClickShareReplyOperator()">
+        Share Reply
+    </button>
+</div>
+<div class="col-sm-offset-2 col-sm-10" id="searchText">
+    <input class="input" type="text" [(ngModel)]="searchText" placeholder="Search breed" (keyup)="search()" />
+
+</div>
+<strong>Output:</strong>
+{{ breeds$ | async | json }}
+
+<hr />

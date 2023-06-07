@@ -16,6 +16,7 @@ import { TakeuntilOperatorComponent } from './takeuntil-operator/takeuntil-opera
 import { SharereplayOperatorComponent } from './sharereplay-operator/sharereplay-operator.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

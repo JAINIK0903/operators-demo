@@ -14,11 +14,11 @@ export class SidebarComponent {
     { label: 'merge', link: '/merge' },
     { label: 'concatwith', link: '/concatwith' },
     { label: 'concatmap', link: '/concatmap' },
-    { label: 'mergemap', link: 'mergemap' },
-    { label: 'switchmap', link: 'switchmap' },
-    { label: 'takeuntil', link: 'takeuntil' },
-    { label: 'forkjoin', link: 'forkjoin' },
-    { label: 'sharereplay', link: 'sharereplay' },
+    { label: 'mergemap', link: '/mergemap' },
+    { label: 'switchmap', link: '/switchmap' },
+    { label: 'takeuntil', link: '/takeuntil' },
+    { label: 'forkjoin', link: '/forkjoin' },
+    { label: 'sharereplay', link: '/sharereplay' },
   ];
   public openSidebar = (): void => {
     document.getElementById('mySidebar')!.style.width = '250px';

@@ -9,6 +9,7 @@ import { SwitchmapOperatorComponent } from './switchmap-operator/switchmap-opera
 import { TakeuntilOperatorComponent } from './takeuntil-operator/takeuntil-operator.component';
 import { SharereplayOperatorComponent } from './sharereplay-operator/sharereplay-operator.component';
 import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator.component';
+import { MapOperatorComponent } from './map-operator/map-operator.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'from',
     component: FromOperatorComponent
+  },
+  {
+    path: 'map',
+    component: MapOperatorComponent
   },
   {
     path: 'merge',
