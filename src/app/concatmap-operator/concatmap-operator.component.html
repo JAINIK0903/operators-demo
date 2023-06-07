@@ -1,1 +1,11 @@
-<button class="btn btn-primary" (click)="onClickConcatMapOperator()">ConcatMap</button>
+<h3>ConcatMap Operator</h3>
+<hr />
+<p>
+    Projects each source value to an Observable which is merged in the output Observable, in a serialized fashion
+    waiting for each one to complete before merging the next.
+</p>
+<hr />
+<div>
+    <strong>Input:</strong><button class="btn btn-primary" (click)="onClickConcatMapOperator()">ConcatMap</button>
+</div>
+<strong>Output:</strong>{{concatMap | json}}

@@ -1,1 +1,9 @@
-<button class="btn btn-primary" (click)="onClickSwitchMapOperator()">SwitchMap</button>
+<h3>SwitchMap Operator</h3>
+<hr />
+<p>Projects each source value to an Observable which is merged in the output Observable, emitting values only from the
+    most recently projected Observable.</p>
+<hr />
+<div>
+    <strong>Input:</strong><button class="btn btn-primary" (click)="onClickSwitchMapOperator()">SwitchMap</button>
+</div>
+<strong>Output:</strong>{{switchMap | json}}

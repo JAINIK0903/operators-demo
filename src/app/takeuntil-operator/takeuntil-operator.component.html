@@ -1,2 +1,15 @@
-<button class="btn btn-primary" (click)="onClickTakeOperator()">Take</button>
-<button class="btn btn-primary" id="btn" (click)="onClickTakeUntilOperator()">TakeUntil</button>
+<h3>TakeUntil Operator</h3>
+<hr />
+<p>
+    Emits the values emitted by the source Observable until a notifier Observable emits a value.
+</p>
+<hr />
+<div>
+    <strong>Input:</strong><button class="btn btn-primary" (click)="onClickTakeOperator()">Take</button>
+</div>
+<strong>Output:</strong>{{result | json}}
+<div>
+    <strong>Input:</strong><button class="btn btn-primary" id="btn"
+        (click)="onClickTakeUntilOperator()">TakeUntil</button>
+</div>
+<strong>Output:</strong>{{ takeUntil |json}}

@@ -9,10 +9,12 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class MergeOperatorComponent implements OnDestroy {
   public mergeSubscription!: Subscription;
+  public merge!: number;
   constructor(private operatorsService: OperatorsService) { }
   onClickMergeOperator() {
     this.mergeSubscription = this.operatorsService.mergeOperator().subscribe(res => {
       console.log(res);
+      this.merge = res;
     })
   }
   ngOnDestroy(): void {

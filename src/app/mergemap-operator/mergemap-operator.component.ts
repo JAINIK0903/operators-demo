@@ -9,11 +9,13 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class MergemapOperatorComponent {
   public mergeMapSubscription!: Subscription;
+  public mergeMap!: number;
   constructor(private operatorsService: OperatorsService) { }
   onClickMergeMapOperator() {
     this.mergeMapSubscription = this.operatorsService.mergeMap()
       .subscribe(res => {
         console.log('Merge Map operator called :- ', res);
+        this.mergeMap = res;
       });
   }
   ngOnDestroy(): void {

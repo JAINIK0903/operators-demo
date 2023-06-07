@@ -9,11 +9,12 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class FromOperatorComponent implements OnDestroy {
   public fromSubscription!: Subscription;
+  public from!: number;
   constructor(private operatorsService: OperatorsService) { }
   onClickFromOperator() {
     this.fromSubscription = this.operatorsService.fromOperator().subscribe(res => {
       console.log(res);
-
+      this.from = res;
     })
   }
 

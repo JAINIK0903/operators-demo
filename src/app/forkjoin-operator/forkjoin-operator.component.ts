@@ -21,7 +21,7 @@ export class ForkjoinOperatorComponent implements OnDestroy {
       console.log('forkJoin data :- ', results);
       results.map((res) => {
         console.log(res);
-        this.output = res;
+        this.output = results;
       });
     }, error => {
       console.log('Error in forkJoin data :- ', error);

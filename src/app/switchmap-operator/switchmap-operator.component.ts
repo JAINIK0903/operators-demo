@@ -9,12 +9,14 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class SwitchmapOperatorComponent implements OnDestroy {
   public switchMapSubscription!: Subscription;
+  public switchMap!: string;
   constructor(private operatorsService: OperatorsService) { }
 
   onClickSwitchMapOperator() {
     this.switchMapSubscription = this.operatorsService.switchMap()
       .subscribe(res => {
         console.log('Switch Map operator called :- ', res);
+        this.switchMap = res;
       });
   }
 

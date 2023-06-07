@@ -9,10 +9,12 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class MapOperatorComponent {
   public mapSubscription!: Subscription;
+  public map!: number;
   constructor(private operatorsService: OperatorsService) { }
   onClickMapOperator() {
     this.mapSubscription = this.operatorsService.mapOperator().subscribe(res => {
       console.log(res);
+      this.map = res;
     })
   }
   ngOnDestroy(): void {

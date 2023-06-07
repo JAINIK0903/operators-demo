@@ -10,18 +10,23 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class OfOperatorComponent {
   public ofSubscription!: Subscription;
+  public of!: string;
+  public ofList!: object;
+
   user: object[] = [{ name: 'Jainik', gender: 'Male' }, { name: 'Mohit', gender: 'Male' }, { name: 'Nirmit', gender: 'Male' }]
 
   constructor(private operatorsService: OperatorsService) { }
   onClickOfOperator() {
     this.ofSubscription = this.operatorsService.ofOperator().subscribe(res => {
       console.log(res);
+      this.of = res;
     });
   }
 
   onClickOfOperatorWithList() {
     this.ofSubscription = this.operatorsService.ofOperatorWithList().subscribe(res => {
       console.log(res);
+      this.ofList = res;
 
     })
   }

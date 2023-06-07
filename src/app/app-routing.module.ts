@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OfOperatorComponent } from './of-operator/of-operator.component';
 import { FromOperatorComponent } from './from-operator/from-operator.component';
@@ -10,6 +10,7 @@ import { TakeuntilOperatorComponent } from './takeuntil-operator/takeuntil-opera
 import { SharereplayOperatorComponent } from './sharereplay-operator/sharereplay-operator.component';
 import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator.component';
 import { MapOperatorComponent } from './map-operator/map-operator.component';
+import { MergemapOperatorComponent } from './mergemap-operator/mergemap-operator.component';
 
 const routes: Routes = [
   {
@@ -38,7 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'mergemap',
-    component: SwitchmapOperatorComponent
+    component: MergemapOperatorComponent
   },
   {
     path: 'switchmap',

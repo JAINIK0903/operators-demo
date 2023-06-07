@@ -9,10 +9,12 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class ConcatWithOperatorComponent implements OnDestroy {
   public concatwithSubscription!: Subscription;
+  public concatWith!: number;
   constructor(private operatorsService: OperatorsService) { }
   onClickConcatWithOperator() {
     this.concatwithSubscription = this.operatorsService.concatWithOperator().subscribe(res => {
       console.log(res);
+      this.concatWith = res;
     })
   }
   ngOnDestroy(): void {

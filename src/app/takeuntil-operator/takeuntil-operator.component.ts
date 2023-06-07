@@ -9,6 +9,8 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class TakeuntilOperatorComponent implements OnDestroy {
   public takeuntilSubscription!: Subscription;
+  public result!: string;
+  public takeUntil!: number;
   constructor(private operatorsService: OperatorsService) { }
 
   onClickTakeOperator() {
@@ -16,6 +18,7 @@ export class TakeuntilOperatorComponent implements OnDestroy {
       .pipe(take(2))
       .subscribe(res => {
         console.log('Take operator called :- ', res);
+        this.result = res;
       });
   }
 
@@ -26,6 +29,7 @@ export class TakeuntilOperatorComponent implements OnDestroy {
       .pipe(takeUntil(timer$))
       .subscribe(res => {
         console.log('Take Until operator called :- ', res);
+        this.takeUntil = res
       });
   }
 
