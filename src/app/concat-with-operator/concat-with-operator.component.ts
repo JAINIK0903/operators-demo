@@ -13,8 +13,8 @@ import { OperatorsService } from '../services/operators.service';
   styleUrls: ['./concat-with-operator.component.scss']
 })
 export class ConcatWithOperatorComponent {
-  string1$ = of('hello', 'jainik');
-  string2$ = of('welcome', 'back');
+  string1$ = of('hello jainik');
+  string2$ = of('welcome back');
   concat$ = this.string1$.pipe(concatWith(this.string2$));
   constructor(private operatorsService: OperatorsService) { }
   public onClickConcatWithOperator(): void {
