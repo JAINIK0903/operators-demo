@@ -1,5 +1,10 @@
+//Module
 import { NgModule } from '@angular/core';
+
+//Routing Module
 import { RouterModule, Routes } from '@angular/router';
+
+//Components
 import { OfOperatorComponent } from './of-operator/of-operator.component';
 import { FromOperatorComponent } from './from-operator/from-operator.component';
 import { MergeOperatorComponent } from './merge-operator/merge-operator.component';

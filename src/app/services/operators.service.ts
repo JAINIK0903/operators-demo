@@ -1,51 +1,37 @@
-import { HttpClient } from '@angular/common/http';
+//Injectable
 import { Injectable } from '@angular/core';
-import { Observable, concatMap, concatWith, from, interval, map, merge, mergeMap, of, shareReplay, switchMap, take } from 'rxjs';
+
+//HttpClient
+import { HttpClient } from '@angular/common/http';
+
+//rxjs Operators
+import { Observable, concatMap, interval, mergeMap, of, shareReplay, switchMap, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OperatorsService {
-  user: object[] = [{ name: 'Jainik', gender: 'Male' }, { name: 'Mohit', gender: 'Male' }, { name: 'Nirmit', gender: 'Male' }]
-
+  public user: object[] = [{ name: 'Jainik', gender: 'Male' }, { name: 'Mohit', gender: 'Male' }, { name: 'Nirmit', gender: 'Male' }]
+  public nameList: object[] = [{ 1: 'Jainik' }, { 2: 'Mohit' }, { 3: 'nirmit' }]
+  public number!: number[]
   constructor(private http: HttpClient) { }
-  ofOperator(): Observable<string> {
-    let string$ = of('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J');
+  public ofOperator(): Observable<object> {
+    let string$ = of(this.nameList);
     return string$;
   }
 
-  ofOperatorWithList(): Observable<object> {
+  public ofOperatorWithList(): Observable<object> {
     let user$ = of(this.user);
     return user$;
   }
 
-  fromOperator(): Observable<number> {
-    let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    let number$ = from(numberArray);
-    return number$;
+  public print(val: string, containerId: string): void {
+    let el = document.createElement('li');
+    el.innerText = val;
+    document.getElementById(containerId)?.appendChild(el);
   }
 
-  concatWithOperator(): Observable<number> {
-    let number1$ = of(1, 2, 3, 4, 5);
-    let number2$ = of(6, 7, 8, 9, 10);
-    let concat$ = number1$.pipe(concatWith(number2$));
-    return concat$;
-  }
-
-  mergeOperator(): Observable<number> {
-    const number1$ = of(1, 2, 3, 4, 5);
-    const number2$ = of(6, 7, 8, 9, 10);
-    const merged$ = merge(number1$, number2$);
-    return merged$
-  }
-
-  mapOperator(): Observable<number> {
-    const number1$ = of(1, 2, 3, 4, 5);
-    const mapped$ = number1$.pipe(map((res) => res + 10))
-    return mapped$
-  }
-
-  concatMapWithAPI(): Observable<any> {
+  public concatMapWithAPI(): Observable<string> {
     const breed$ = of('hound', 'mastiff', 'retriever'); // outer/source observable
     const concatMapped$ = breed$.pipe(
       concatMap((breed) => {
@@ -56,7 +42,7 @@ export class OperatorsService {
     return concatMapped$;
   }
 
-  mergeMap(): Observable<number> {
+  public mergeMap(): Observable<number> {
 
     const breed$ = of('hound', 'mastiff', 'retriever'); // outer/source observable
     const mergeMapped$ = breed$.pipe(
@@ -68,7 +54,7 @@ export class OperatorsService {
     return mergeMapped$;
   }
 
-  switchMap() {
+  public switchMap(): Observable<string> {
     const breed$ = of('hound', 'mastiff', 'retriever');
     const switchMapped$ = breed$.pipe(
       switchMap((breed) => {
@@ -79,17 +65,17 @@ export class OperatorsService {
     return switchMapped$;
   }
 
-  takeUntil() {
+  public takeUntil(): Observable<number> {
     const source$ = interval(1000);
     return source$;
   }
 
-  getDogBreed(breed: any): Observable<any> {
+  public getDogBreed(breed: string): Observable<string> {
     const url = 'https://dog.ceo/api/breed/' + breed + '/list';
     return this.http.get<any>(url);
   }
 
-  shareReply(): Observable<number> {
+  public shareReply(): Observable<number> {
     // 3 is buffer size, which means it will cache the last 3 emitted values and replay them to new subscribers.
     const source$ = interval(2000).pipe(take(6), shareReplay(3));
     return source$;

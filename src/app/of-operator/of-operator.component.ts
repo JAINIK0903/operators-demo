@@ -1,6 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+//Component
 import { Component } from '@angular/core';
-import { Observable, Subscription, of } from 'rxjs';
+
+//rxjs Operator
+import { Subscription } from 'rxjs';
+
+//Service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -10,29 +14,27 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class OfOperatorComponent {
   public ofSubscription!: Subscription;
-  public of!: string;
+  public of!: object;
   public ofList!: object;
 
-  user: object[] = [{ name: 'Jainik', gender: 'Male' }, { name: 'Mohit', gender: 'Male' }, { name: 'Nirmit', gender: 'Male' }]
-
   constructor(private operatorsService: OperatorsService) { }
-  onClickOfOperator() {
+  public onClickOfOperator(): void {
     this.ofSubscription = this.operatorsService.ofOperator().subscribe(res => {
       console.log(res);
       this.of = res;
     });
   }
 
-  onClickOfOperatorWithList() {
+  public onClickOfOperatorWithList(): void {
     this.ofSubscription = this.operatorsService.ofOperatorWithList().subscribe(res => {
       console.log(res);
       this.ofList = res;
 
-    })
+    });
   }
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.ofSubscription) {
-      this.ofSubscription.unsubscribe();
+      this.ofSubscription.unsubscribe()
     }
   }
 }

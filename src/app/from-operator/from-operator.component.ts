@@ -1,5 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+//Component
+import { Component } from '@angular/core';
+
+//rxjs Operator
+import { from } from 'rxjs';
+
+//Service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -7,20 +12,15 @@ import { OperatorsService } from '../services/operators.service';
   templateUrl: './from-operator.component.html',
   styleUrls: ['./from-operator.component.scss']
 })
-export class FromOperatorComponent implements OnDestroy {
-  public fromSubscription!: Subscription;
+export class FromOperatorComponent {
   public from!: number;
+  public obs1 = from(['1', '2', '3', '4', '5']);
   constructor(private operatorsService: OperatorsService) { }
-  onClickFromOperator() {
-    this.fromSubscription = this.operatorsService.fromOperator().subscribe(res => {
+  public onClickFromOperator(): void {
+    this.obs1.subscribe(res => {
       console.log(res);
-      this.from = res;
+      this.operatorsService.print(res, 'elcontainer')
     })
   }
-
-  ngOnDestroy(): void {
-    if (this.fromSubscription) {
-      this.fromSubscription.unsubscribe();
-    }
-  }
 }
+

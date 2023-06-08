@@ -1,5 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+//Component
+import { Component } from '@angular/core';
+
+//rxjs operators
+import { concatWith, of } from 'rxjs';
+
+//Service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -7,19 +12,15 @@ import { OperatorsService } from '../services/operators.service';
   templateUrl: './concat-with-operator.component.html',
   styleUrls: ['./concat-with-operator.component.scss']
 })
-export class ConcatWithOperatorComponent implements OnDestroy {
-  public concatwithSubscription!: Subscription;
-  public concatWith!: number;
+export class ConcatWithOperatorComponent {
+  string1$ = of('hello', 'jainik');
+  string2$ = of('welcome', 'back');
+  concat$ = this.string1$.pipe(concatWith(this.string2$));
   constructor(private operatorsService: OperatorsService) { }
-  onClickConcatWithOperator() {
-    this.concatwithSubscription = this.operatorsService.concatWithOperator().subscribe(res => {
+  public onClickConcatWithOperator(): void {
+    this.concat$.subscribe((res) => {
       console.log(res);
-      this.concatWith = res;
+      this.operatorsService.print(res, 'elcontainer')
     })
-  }
-  ngOnDestroy(): void {
-    if (this.concatwithSubscription) {
-      this.concatwithSubscription.unsubscribe();
-    }
   }
 }

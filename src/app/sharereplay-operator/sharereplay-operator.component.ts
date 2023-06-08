@@ -1,5 +1,10 @@
+//Component
 import { Component, OnDestroy } from '@angular/core';
+
+//rxjs Operators
 import { Observable, Subject, Subscription, catchError, debounceTime, distinctUntilChanged, from, of, switchMap, tap } from 'rxjs';
+
+//service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -9,20 +14,20 @@ import { OperatorsService } from '../services/operators.service';
 })
 export class SharereplayOperatorComponent implements OnDestroy {
   public sharereplaySubscription!: Subscription;
-  searchText!: string;
-  breeds$!: Observable<any>;
-  searchBreed$ = new Subject<string>();
+  public searchText!: string;
+  public breeds$!: Observable<string>;
+  public searchBreed$ = new Subject<string>();
 
   constructor(private operatorsService: OperatorsService) { }
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.searchBreed();
   }
 
-  search() {
+  public search(): void {
     this.searchBreed$.next(this.searchText);
   }
 
-  searchBreed() {
+  public searchBreed(): void {
     this.breeds$ = this.searchBreed$.pipe(
       debounceTime(3000),
       distinctUntilChanged(),
@@ -30,7 +35,7 @@ export class SharereplayOperatorComponent implements OnDestroy {
     );
   }
 
-  searchBreedApi(searchText: string): Observable<any> {
+  public searchBreedApi(searchText: string): Observable<any> {
     if (searchText) {
       return from(this.operatorsService.getDogBreed(searchText))
         .pipe(
@@ -43,7 +48,7 @@ export class SharereplayOperatorComponent implements OnDestroy {
     return of({});
   }
 
-  onClickShareReplyOperator() {
+  public onClickShareReplyOperator(): void {
     this.operatorsService.shareReply().subscribe((res) => {
       console.log('Observer1 :- ', res);
     });
@@ -58,7 +63,7 @@ export class SharereplayOperatorComponent implements OnDestroy {
     }, 1200);
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.sharereplaySubscription)
       this.sharereplaySubscription.unsubscribe()
   }

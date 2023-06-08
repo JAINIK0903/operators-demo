@@ -1,5 +1,10 @@
+//Component
 import { Component, OnDestroy } from '@angular/core';
+
+//rxjs Operator
 import { Subscription } from 'rxjs';
+
+//service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -12,7 +17,7 @@ export class SwitchmapOperatorComponent implements OnDestroy {
   public switchMap!: string;
   constructor(private operatorsService: OperatorsService) { }
 
-  onClickSwitchMapOperator() {
+  public onClickSwitchMapOperator(): void {
     this.switchMapSubscription = this.operatorsService.switchMap()
       .subscribe(res => {
         console.log('Switch Map operator called :- ', res);
@@ -20,7 +25,7 @@ export class SwitchmapOperatorComponent implements OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.switchMapSubscription) {
       this.switchMapSubscription.unsubscribe();
     }

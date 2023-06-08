@@ -1,9 +1,12 @@
+//Modules
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+//Components
+import { AppComponent } from './app.component';
 import { OfOperatorComponent } from './of-operator/of-operator.component';
 import { FromOperatorComponent } from './from-operator/from-operator.component';
 import { ConcatWithOperatorComponent } from './concat-with-operator/concat-with-operator.component';
@@ -16,7 +19,6 @@ import { TakeuntilOperatorComponent } from './takeuntil-operator/takeuntil-opera
 import { SharereplayOperatorComponent } from './sharereplay-operator/sharereplay-operator.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

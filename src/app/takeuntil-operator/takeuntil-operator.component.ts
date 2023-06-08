@@ -1,5 +1,10 @@
+//Component
 import { Component, OnDestroy } from '@angular/core';
+
+//rxjs Operators
 import { Subscription, take, timer, takeUntil } from 'rxjs';
+
+//Service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -13,7 +18,7 @@ export class TakeuntilOperatorComponent implements OnDestroy {
   public takeUntil!: number;
   constructor(private operatorsService: OperatorsService) { }
 
-  onClickTakeOperator() {
+  public onClickTakeOperator(): void {
     this.takeuntilSubscription = this.operatorsService.concatMapWithAPI()
       .pipe(take(2))
       .subscribe(res => {
@@ -22,7 +27,7 @@ export class TakeuntilOperatorComponent implements OnDestroy {
       });
   }
 
-  onClickTakeUntilOperator() {
+  public onClickTakeUntilOperator(): void {
     const timer$ = timer(4000);
 
     this.takeuntilSubscription = this.operatorsService.takeUntil()
@@ -33,7 +38,7 @@ export class TakeuntilOperatorComponent implements OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.takeuntilSubscription) {
       this.takeuntilSubscription.unsubscribe();
     }

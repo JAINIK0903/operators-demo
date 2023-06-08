@@ -1,5 +1,10 @@
+//Component
 import { Component, OnDestroy } from '@angular/core';
-import { Subscription, forkJoin, map } from 'rxjs';
+
+//rxjs Operators
+import { Subscription, forkJoin } from 'rxjs';
+
+//Service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -12,7 +17,7 @@ export class ForkjoinOperatorComponent implements OnDestroy {
   public output!: any[];
   constructor(private operatosService: OperatorsService) { }
 
-  onClickForkJoinOperator() {
+  public onClickForkJoinOperator(): void {
     const observer1 = this.operatosService.getDogBreed('hound');
     const observer2 = this.operatosService.getDogBreed('mastiff');
     const observer3 = this.operatosService.getDogBreed('retriever');
@@ -27,7 +32,7 @@ export class ForkjoinOperatorComponent implements OnDestroy {
       console.log('Error in forkJoin data :- ', error);
     });
   }
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     if (this.forkjoinSubscription) {
       this.forkjoinSubscription.unsubscribe();
     }

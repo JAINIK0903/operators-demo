@@ -1,5 +1,10 @@
+//Component
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+
+//rxjs Operators
+import { map, of } from 'rxjs';
+
+//Service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -8,18 +13,16 @@ import { OperatorsService } from '../services/operators.service';
   styleUrls: ['./map-operator.component.scss']
 })
 export class MapOperatorComponent {
-  public mapSubscription!: Subscription;
+  string1$ = of('1', '2', '3', '4', '5');
+  mapped$ = this.string1$.pipe(map((res) => res.concat('10')));
+
   public map!: number;
   constructor(private operatorsService: OperatorsService) { }
-  onClickMapOperator() {
-    this.mapSubscription = this.operatorsService.mapOperator().subscribe(res => {
+  public onClickMapOperator(): void {
+    this.mapped$.subscribe((res) => {
       console.log(res);
-      this.map = res;
+      this.operatorsService.print(res, 'elcontainer')
     })
   }
-  ngOnDestroy(): void {
-    if (this.mapSubscription) {
-      this.mapSubscription.unsubscribe();
-    }
-  }
 }
+

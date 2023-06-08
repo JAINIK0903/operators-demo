@@ -1,5 +1,10 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+//Component
+import { Component } from '@angular/core';
+
+//rxjs operators
+import { merge, of } from 'rxjs';
+
+//Service
 import { OperatorsService } from '../services/operators.service';
 
 @Component({
@@ -7,19 +12,16 @@ import { OperatorsService } from '../services/operators.service';
   templateUrl: './merge-operator.component.html',
   styleUrls: ['./merge-operator.component.scss']
 })
-export class MergeOperatorComponent implements OnDestroy {
-  public mergeSubscription!: Subscription;
+export class MergeOperatorComponent {
   public merge!: number;
+  string1$ = of('cricket');
+  string2$ = of('football');
+  merged$ = merge(this.string1$, this.string2$);
   constructor(private operatorsService: OperatorsService) { }
-  onClickMergeOperator() {
-    this.mergeSubscription = this.operatorsService.mergeOperator().subscribe(res => {
+  public onClickMergeOperator(): void {
+    this.merged$.subscribe((res) => {
       console.log(res);
-      this.merge = res;
+      this.operatorsService.print(res, 'elcontainer')
     })
-  }
-  ngOnDestroy(): void {
-    if (this.mergeSubscription) {
-      this.mergeSubscription.unsubscribe();
-    }
   }
 }
