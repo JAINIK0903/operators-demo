@@ -17,6 +17,7 @@ import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator
 import { MapOperatorComponent } from './map-operator/map-operator.component';
 import { MergemapOperatorComponent } from './mergemap-operator/mergemap-operator.component';
 import { CombineLatestOperatorComponent } from './combine-latest-operator/combine-latest-operator.component';
+import { PartitionOperatorComponent } from './partition-operator/partition-operator.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'mergemap',
     component: MergemapOperatorComponent
+  },
+  {
+    path: 'partition',
+    component: PartitionOperatorComponent
   },
   {
     path: 'switchmap',

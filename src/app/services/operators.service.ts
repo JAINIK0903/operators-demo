@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 //rxjs Operators
-import { Observable, combineLatest, concatMap, interval, mergeMap, of, shareReplay, switchMap, take } from 'rxjs';
+import { Observable, combineLatest, concatMap, interval, mergeMap, of, partition, shareReplay, switchMap, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

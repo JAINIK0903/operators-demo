@@ -20,6 +20,7 @@ import { SharereplayOperatorComponent } from './sharereplay-operator/sharereplay
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator.component';
 import { CombineLatestOperatorComponent } from './combine-latest-operator/combine-latest-operator.component';
+import { PartitionOperatorComponent } from './partition-operator/partition-operator.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CombineLatestOperatorComponent } from './combine-latest-operator/combin
     SidebarComponent,
     ForkjoinOperatorComponent,
     CombineLatestOperatorComponent,
+    PartitionOperatorComponent,
   ],
   imports: [
     BrowserModule,

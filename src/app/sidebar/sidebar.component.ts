@@ -17,6 +17,7 @@ export class SidebarComponent {
     { label: 'concatwith', link: '/concatwith' },
     { label: 'concatmap', link: '/concatmap' },
     { label: 'mergemap', link: '/mergemap' },
+    { label: 'partition', link: '/partition' },
     { label: 'switchmap', link: '/switchmap' },
     { label: 'takeuntil', link: '/takeuntil' },
     { label: 'forkjoin', link: '/forkjoin' },
