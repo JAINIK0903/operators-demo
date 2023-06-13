@@ -16,6 +16,7 @@ import { SharereplayOperatorComponent } from './sharereplay-operator/sharereplay
 import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator.component';
 import { MapOperatorComponent } from './map-operator/map-operator.component';
 import { MergemapOperatorComponent } from './mergemap-operator/mergemap-operator.component';
+import { CombineLatestOperatorComponent } from './combine-latest-operator/combine-latest-operator.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'merge',
     component: MergeOperatorComponent
+  },
+  {
+    path: 'combineLatest',
+    component: CombineLatestOperatorComponent
   },
   {
     path: 'concatwith',

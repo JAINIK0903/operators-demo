@@ -19,6 +19,7 @@ import { TakeuntilOperatorComponent } from './takeuntil-operator/takeuntil-opera
 import { SharereplayOperatorComponent } from './sharereplay-operator/sharereplay-operator.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator.component';
+import { CombineLatestOperatorComponent } from './combine-latest-operator/combine-latest-operator.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator
     TakeuntilOperatorComponent,
     SharereplayOperatorComponent,
     SidebarComponent,
-    ForkjoinOperatorComponent
+    ForkjoinOperatorComponent,
+    CombineLatestOperatorComponent,
   ],
   imports: [
     BrowserModule,

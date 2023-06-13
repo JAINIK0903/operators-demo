@@ -13,6 +13,7 @@ export class SidebarComponent {
     { label: 'from', link: '/from' },
     { label: 'map', link: '/map' },
     { label: 'merge', link: '/merge' },
+    { label: 'combineLatest', link: '/combineLatest' },
     { label: 'concatwith', link: '/concatwith' },
     { label: 'concatmap', link: '/concatmap' },
     { label: 'mergemap', link: '/mergemap' },

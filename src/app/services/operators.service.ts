@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 //rxjs Operators
-import { Observable, concatMap, interval, mergeMap, of, shareReplay, switchMap, take } from 'rxjs';
+import { Observable, combineLatest, concatMap, interval, mergeMap, of, shareReplay, switchMap, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,16 @@ import { Observable, concatMap, interval, mergeMap, of, shareReplay, switchMap, 
 export class OperatorsService {
   public user: object[] = [{ name: 'Jainik', gender: 'Male' }, { name: 'Mohit', gender: 'Male' }, { name: 'Nirmit', gender: 'Male' }]
   public nameList: object[] = [{ 1: 'Jainik' }, { 2: 'Mohit' }, { 3: 'nirmit' }]
-  public number!: number[]
   constructor(private http: HttpClient) { }
   public ofOperator(): Observable<object> {
     let string$ = of(this.nameList);
     return string$;
+  }
+  public combineLatestOperator(): Observable<object> {
+    let range1$ = of({ 1: 'Jainik' }, { 2: 'Mohit' });
+    let range2$ = of({ 3: 'Nirmit' })
+    let combinedRange$ = combineLatest({ range1$, range2$ });
+    return combinedRange$;
   }
 
   public ofOperatorWithList(): Observable<object> {
