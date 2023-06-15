@@ -21,6 +21,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ForkjoinOperatorComponent } from './forkjoin-operator/forkjoin-operator.component';
 import { CombineLatestOperatorComponent } from './combine-latest-operator/combine-latest-operator.component';
 import { PartitionOperatorComponent } from './partition-operator/partition-operator.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PartitionOperatorComponent } from './partition-operator/partition-opera
     ForkjoinOperatorComponent,
     CombineLatestOperatorComponent,
     PartitionOperatorComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,12 @@
 //Component
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 
 //rxjs Operator
 import { Subscription } from 'rxjs';
 
 //Service
 import { OperatorsService } from '../services/operators.service';
+import { AlertComponent } from '../alert/alert.component';
 
 @Component({
   selector: 'app-of-operator',
@@ -17,9 +18,11 @@ export class OfOperatorComponent {
   public of!: object;
   public ofList!: object;
 
-  constructor(private operatorsService: OperatorsService) { }
+  constructor(private operatorsService: OperatorsService, private viewContainerRef: ViewContainerRef) { }
   public onClickOfOperator(): void {
     this.ofSubscription = this.operatorsService.ofOperator().subscribe(res => {
+      const containerRef = this.viewContainerRef.createComponent(AlertComponent);
+      containerRef.instance.alert();
       console.log(res);
       this.of = res;
     });
